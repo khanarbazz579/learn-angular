@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-bx">
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Type number</label>
+                    <input [(ngModel)]="phoneNumber" type="text" [disabled]="successOtp" maxlength="10"
+                        class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+                <!-- <div>{{successOtp}}</div> -->
+                <div class="mb-3" *ngIf="successOtp">
+                    <label for="exampleInputPassword1" class="form-label">OTP</label>
+                    <input type="text" [(ngModel)]="otp" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <button type="submit" class="btn btn-primary" *ngIf="!successOtp" (click)="genrateOtp()">
+                    Genrate OTP
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="successOtp" (click)="submitOtp()">
+                    Login
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
